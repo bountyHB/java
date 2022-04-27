@@ -1,0 +1,20 @@
+package com.kh.variable;
+
+import com.kh.variable.practice2.CastingPractice;
+
+public class Application {
+
+	public static void main(String[] args) {
+
+//		new VariablePractice().method1();
+//		new VariablePractice().method2();
+//		new VariablePractice().method3();
+//		new VariablePractice().method4();
+		
+//		new CastingPractice().method1();
+//		new CastingPractice().method2();
+		new CastingPractice().method3();
+		
+	}
+
+}

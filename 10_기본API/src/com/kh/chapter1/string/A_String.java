@@ -185,10 +185,13 @@ public class A_String {
 		System.out.println("분리 후 문자열의 개수 : " + st.countTokens());
 		
 		// while 문으로 작성
-//		while(st.hasMoreTokens()) {
-//			System.out.print(st.countTokens()+ " ");
-//			System.out.print(st.nextToken() + " ");
-//		}
+		while(st.hasMoreTokens()) {
+			System.out.print(st.countTokens()+ " ");
+			System.out.print(st.nextToken() + " ");
+		}
+		// 6 JAVA 5 Oracle 4 JDBC 3 HTML 2 CSS 1 Spring
+		
+		// 위에서 한번 꺼내고 나면 더는 남아있지 않기 때문에 새로 생성후 for문을 실행해야함.
 
 		// for 문으로 작성 
 		int length = st.countTokens();
@@ -196,7 +199,7 @@ public class A_String {
 		for (int i = 0; i < length; i++) {
 			System.out.print(st.nextToken() + " ");
 		}
-
+		// JAVA Oracle JDBC HTML CSS Spring 
 		
 		
 	}

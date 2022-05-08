@@ -10,9 +10,12 @@ public class Circle extends Point {
 		super(x, y);
 		this.radius = radius;
 	}
-
+	
+	@Override
 	public void draw() {
-		
+		super.draw();
+		System.out.printf("면적 : %.1f\n", Math.PI * radius * radius);
+		System.out.printf("둘레 : %.1f\n", Math.PI * radius * 2);
 	}
 
 	public int getRadius() {
@@ -22,18 +25,5 @@ public class Circle extends Point {
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
-
-	@Override
-	public String toString() {
-		return "Circle [getX()=" + getX() + ", getY()=" + getY() + ", toString()=" + super.toString() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", radius=" + radius + "]";
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 }

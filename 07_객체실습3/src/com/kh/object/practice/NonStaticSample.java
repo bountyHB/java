@@ -35,10 +35,15 @@ public class NonStaticSample {
 		// 주의! 소문자 대문자 모두 포함 
 		
 		System.out.printf("렌덤 영문자 출력 : ");
-		char alphabette = '\u0000';
-		alphabette = (char)(Math.random()*57+65);
+		int num = 0;
 		
-		return alphabette;
+		while (true) {
+			num = (int)(Math.random()*58+65);
+			if (num >= 'a' && num<= 'z' || num >='A' && num <='Z') {
+				break;
+			}
+		}
+		return (char)num;
 	}
 	
 	public String mySubString(String str, int index1, int index2) {

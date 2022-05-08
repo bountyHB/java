@@ -2,48 +2,39 @@ package com.kh.inherit.practice;
 
 public class Rectangle extends Point {
 
-	private int width;
-	private int height;
+	private double width;
+	private double height;
 	
 	public Rectangle() {
 	}
 
-	public Rectangle(int x, int y, int width, int height) {
+	public Rectangle(int x, int y, double width, double height) {
 		super(x, y);
 		this.width = width;
 		this.height = height;
 	}
 
+	@Override
 	public void draw() {
-		
+		super.draw();
+		System.out.printf("면적 : %.1f\n" , width * height);
+		System.out.printf("둘레 : %.1f\n" , 2 * (width + height));
 	}
 
-	public int getWidth() {
+	public double getWidth() {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(double width) {
 		this.width = width;
 	}
 
-	public int getHeight() {
+	public double getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(double height) {
 		this.height = height;
 	}
-
-	@Override
-	public String toString() {
-		return "Rectangle [getX()=" + getX() + ", getY()=" + getY() + ", toString()=" + super.toString()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", width=" + width + ", height="
-				+ height + "]";
-	}
-	
-	
-	
-	
-	
 	
 }

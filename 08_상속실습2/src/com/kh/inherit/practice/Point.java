@@ -9,11 +9,12 @@ public class Point {
 	}
 
 	public Point(int x, int y) {
-		
+		this.x = x;
+		this.y = y;
 	}
 	
 	public void draw() {
-		
+		System.out.println("(x, y) : (" + x + ", " + y + ")");
 	}
 
 	public int getX() {
@@ -32,13 +33,4 @@ public class Point {
 		this.y = y;
 	}
 
-	@Override
-	public String toString() {
-		return "Point [x=" + x + ", y=" + y + "]";
-	}
-	
-	
-	
-	
-	
 }

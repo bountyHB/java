@@ -2,7 +2,7 @@ package mini.acbook;
 
 public interface JustMenu {
 	
-	void user();
+	void select();
 	void enterMoney();
 	void choose();
 	void chooseIncome();

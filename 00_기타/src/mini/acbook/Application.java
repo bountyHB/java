@@ -6,9 +6,11 @@ public class Application {
 		
 		Menu menu = new Menu();
 		
-		menu.enterMoney();
+//		menu.select();
+	
+		java.util.Date now = new java.util.Date();
+		System.out.println(now);
 		
-
 	}
-
+	
 }

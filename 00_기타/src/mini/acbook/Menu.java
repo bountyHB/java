@@ -9,16 +9,61 @@ public class Menu implements JustMenu {
 	int sum1;
 	int sum2;
 	int left;
+	String id;
+	String pwd;
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Integer> income = new ArrayList();
 	ArrayList<Integer> expense = new ArrayList();
 	ArrayList<String> incomeMemo = new ArrayList();
 	ArrayList<String> expenseMemo = new ArrayList();
+	Register register = new Register();
+	User user = new User();
 	
-
 	@Override
-	public void user() {
-		System.out.println("유저 ");
+	public void select() {
+		while (true) {
+			System.out.println("=============================");
+			System.out.println("1. 로그인");
+			System.out.println("2. 회원가입");
+			System.out.println("3. 아이디 / 비밀번호 찾기");
+			System.out.println("0. 종료");
+			System.out.println("=============================");
+			System.out.print("원하시는 메뉴의 번호를 입력하세요. >");
+			System.out.println();
+			menu = scanner.nextInt();
+
+			switch (menu) {
+			case 1:
+				System.out.println("로그인을 선택하였습니다.");
+				user.logIn();
+				if (user.getId().equals(register.getId())) {
+					System.out.println("환영합니다! " + user.getId() + "님!!");
+					enterMoney();
+					break;
+				} else {
+					System.out.println("아이디가 존재하지 않습니다.");
+					select();
+				}
+			case 2:
+				register.signInId();
+				register.idFile();
+				register.signInPwd();
+				select();
+				break;
+			case 3:
+				register.findID();
+				register.findPwd();
+				select();
+				break;
+			case 0:
+				System.out.println("프로그램을 종료합니다.");
+				return;
+			default:
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				continue;
+			}
+			return;
+		}
 	}
 
 	@Override
@@ -36,15 +81,15 @@ public class Menu implements JustMenu {
 
 			switch (menu) {
 			case 1:
-				System.out.println("금액입력을 선택하였습니다.");
-				System.out.print("금액 > ");
+				System.out.print("입력하려는 금액 > ");
 				this.num2 = scanner.nextInt();
 				// 받은 숫자를 임시저장
 				choose();
 				break;
 			case 2:
-				System.out.println("enterMoney 이전화면으로 돌아갑니다.");
-				return; 
+				System.out.println("이전화면으로 돌아갑니다.");
+				select();
+				break; 
 			case 0:
 				System.out.println("가계부를 종료합니다.");
 				return;
@@ -120,7 +165,7 @@ public class Menu implements JustMenu {
 				cheking();
 				break;
 			case 9:
-				System.out.println("chooseIncome 이전메뉴로 이동합니다.");
+				System.out.println("이전메뉴로 이동합니다.");
 				choose();
 				break;
 			case 0:
@@ -199,7 +244,7 @@ public class Menu implements JustMenu {
 				cheking();
 				break;
 			case 9:
-				System.out.println("chooseExpense 이전메뉴로 이동합니다.");
+				System.out.println("이전메뉴로 이동합니다.");
 				choose();
 				break;
 			case 0:
@@ -269,9 +314,9 @@ public class Menu implements JustMenu {
 		left = sum1 - sum2;
 		
 		if (left >= 0) {
-			System.out.println("지금 잔고에 남아있는 돈은 " + (left) + "원 입니다.");
+			System.out.println(user.getId() + "님의 잔고에는 총 " + (left) + "원이 있습니다.");
 		} else {
-			System.out.println("지금 잔고에 남아있는 돈은 0원,");
+			System.out.println(user.getId() + "님의 잔고에 남아있는 돈은 0원,");
 			System.out.println((left) + "의 갚아야할 빚이 있습니다.");
 		}
 		cheking();

@@ -8,8 +8,8 @@ public class Application {
 		
 //		menu.select();
 	
-		java.util.Date now = new java.util.Date();
-		System.out.println(now);
+		Register register = new Register();
+		System.out.println(register.getId());
 		
 	}
 	

@@ -5,39 +5,31 @@ import java.util.Scanner;
 public class User{
 	Scanner scanner = new Scanner(System.in);
 	
-	private String userId;
-	private String userPwd;
-	
+	private String id;
+	private String pwd;
 	
 	public User() {
 	}
 
 	public User(String userId, String userPwd) {
-		this.userId = userId;
-		this.userPwd = userPwd;
+		this.id = userId;
+		this.pwd = userPwd;
 	}
 
 	public String getId() {
-		return userId;
+		return id;
 	}
 
 	public void setId(String id) {
-		this.userId = id;
+		this.id = id;
 	}
 
 	public String getPwd() {
-		return userPwd;
+		return pwd;
 	}
 
 	public void setPwd(String pwd) {
-		this.userPwd = pwd;
+		this.pwd = pwd;
 	}
 
-	
-	public void logIn() {
-		System.out.print("아이디 > ");
-		this.userId = scanner.nextLine();
-		System.out.print("비밀번호 > ");
-		this.userPwd = scanner.nextLine();
-	}
 }

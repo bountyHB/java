@@ -6,13 +6,10 @@ public class Application {
 		
 		Menu menu = new Menu();
 		
-		menu.select();
-
-//		Register register = new Register();
-//		register.logIn();
-		User user = new User();
-		
+//		menu.select();
 	
+		Register register = new Register();
+		System.out.println(register.getId());
 		
 	}
 	

@@ -85,50 +85,13 @@ public class SignIn {
 			
 			if (tmpPwd1.equals(tmpPwd2)) {
 				this.pwd = tmpPwd1;
-				userData.userList.put(this.id,this.pwd);
+				userData.userList.put(id,new User(id,pwd));
 				System.out.println("회원가입이 완료 되었습니다.");
 				break;
 			} else {
 				System.out.println("비밀번호가 일치하지 않습니다.");
 			}
 		}
-		
-	}
-	
-	public void signIn() {
-		while (true) {
-			System.out.print("설정할 아이디를 입력해주세요. > ");
-			tmpId = sc.nextLine();
-			if (tmpId.length() < 4 ) {
-				System.out.println("아이디는 최소 4글자 이상 입력하여야 합니다.");
-			}else if (userData.userList.containsKey(id)) {
-				System.out.println("이미 사용 중인 아이디 입니다.");
-				continue;
-			}else {
-				System.out.println("아이디가 생성 되었습니다.");
-				this.id = tmpId;
-				break;
-			}
-		}
-		
-		while(true) {
-			System.out.print("비밀번호를 입력해주세요. > ");
-			tmpPwd1 = sc.nextLine();
-
-			System.out.print("비밀번호를 다시 한번 입력해주세요. > ");
-			tmpPwd2 = sc.nextLine();
-			
-			if (tmpPwd1.equals(tmpPwd2)) {
-				this.pwd = tmpPwd1;
-				userData.userList.put(this.id,this.pwd);
-				System.out.println("회원가입이 완료 되었습니다.");
-				break;
-			} else {
-				System.out.println("비밀번호가 일치하지 않습니다.");
-			}
-		}
-		
-		
 		
 	}
 	

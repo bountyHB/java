@@ -18,6 +18,9 @@ public class Menu implements JustMenu {
 	ArrayList<String> expenseMemo = new ArrayList();
 	Register register = new Register();
 	User user = new User();
+	UserData userData = new UserData();
+	SignIn signIn = new SignIn();
+	LogIn logIn = new LogIn();
 	
 	@Override
 	public void select() {
@@ -35,23 +38,18 @@ public class Menu implements JustMenu {
 			switch (menu) {
 			case 1:
 				System.out.println("로그인을 선택하였습니다.");
-				user.logIn();
-				if (user.getId().equals(register.getId())) {
-					System.out.println("환영합니다! " + user.getId() + "님!!");
+				logIn.login();
+				if (userData.userList.containsKey(logIn.getId())) {
+					System.out.println("환영합니다! " + logIn.getId() + "님!!");
 					enterMoney();
 					break;
 				} else {
-					System.out.println("아이디가 존재하지 않습니다.");
+					System.out.println("아이디를 확인하거나, 회원가입을 진행해주세요.");
 					select();
 				}
 			case 2:
-<<<<<<< HEAD
-				signIn.signIn();
-=======
-				register.signInId();
-				register.idFile();
-				register.signInPwd();
->>>>>>> parent of b605378 (220521)
+				signIn.signInId();
+				signIn.signInPwd();
 				select();
 				break;
 			case 3:
@@ -76,7 +74,8 @@ public class Menu implements JustMenu {
 		while (true) {
 			System.out.println("=============================");
 			System.out.println("1. 금액입력");
-			System.out.println("2. 이전화면");
+			System.out.println("2. 불러오기");
+			System.out.println("9. 이전화면");
 			System.out.println("0. 종료");
 			System.out.println("=============================");
 			System.out.print("원하시는 메뉴의 번호를 입력하세요. >");
@@ -87,10 +86,13 @@ public class Menu implements JustMenu {
 			case 1:
 				System.out.print("입력하려는 금액 > ");
 				this.num2 = scanner.nextInt();
-				// 받은 숫자를 임시저장
 				choose();
 				break;
 			case 2:
+				System.out.println("불러오기를 선택하셨습니다.");
+				register.filePrint();
+				break; 
+			case 9:
 				System.out.println("이전화면으로 돌아갑니다.");
 				select();
 				break; 
@@ -268,6 +270,7 @@ public class Menu implements JustMenu {
 			System.out.println("===========메뉴 선택===========");
 			System.out.println("1. 가계부 확인");
 			System.out.println("2. 추가입력");
+			System.out.println("3. 저장");
 			System.out.println("0. 종료");
 			System.out.println("=============================");
 			System.out.print("원하시는 메뉴의 번호를 입력하세요. >");
@@ -283,6 +286,12 @@ public class Menu implements JustMenu {
 				System.out.println("추가 입력을 선택하였습니다.");
 				enterMoney(); 
 				break;
+			case 3:
+				System.out.println("저장을 선택하였습니다.");
+				register.fileMake(); // 아이디와 비밀번호로만 제목이 이루어진 빈 파일 생성
+				// showbalance();
+				System.out.println("가계부가 저장되었습니다.");
+				continue;
 			case 0:
 				System.out.println("가계부를 종료합니다.");
 				return;

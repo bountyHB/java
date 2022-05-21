@@ -19,14 +19,9 @@ public class Application {
 		System.out.println(userData.userList.get("hotba0930").equals("aorwn"));
 =======
 	
-<<<<<<< HEAD
 		Register register = new Register();
 		System.out.println(register.getId());
 >>>>>>> parent of b605378 (220521)
-=======
-		java.util.Date now = new java.util.Date();
-		System.out.println(now);
->>>>>>> parent of 04f0a96 (220519)
 		
 	}
 	

@@ -44,14 +44,14 @@ public class Register {
 	}
 	
 	public void idFile() {
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(getId(),true))){
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + getId(),true))){
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void idPrint() {
-		try (BufferedReader br = new BufferedReader(new FileReader(getId()))){
+		try (BufferedReader br = new BufferedReader(new FileReader("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + getId()))){
 			String value = null;
 			while((value = br.readLine()) != null) {
 				System.out.println(value);

@@ -2,7 +2,6 @@ package mini.acbook;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,14 +12,11 @@ public class Register {
 	
 	private String id;
 	private String pwd;
-	private String idPwd;
 	private String findId;
 	private String findPwd;
 	private String tmpId;
 	private String tmpPwd1;
 	private String tmpPwd2;
-	private String fileName;
-	private boolean loggin;
 	
 
 	public Register() {
@@ -31,8 +27,6 @@ public class Register {
 		this.pwd = password;
 	}
 
-	// getter setter
-	
 	public String getId() {
 		return id;
 	}
@@ -49,35 +43,15 @@ public class Register {
 		this.pwd = pwd;
 	}
 	
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	
-	public boolean isLoggin() {
-		return loggin;
-	}
-
-	public void setLoggin(boolean loggin) {
-		this.loggin = loggin;
-	}
-
-	// methods
-	
-	public void fileMake() {
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + getId()+getPwd(),true))){
-			bw.write("몰쓰냐");
+	public void idFile() {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + getId(),true))){
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void filePrint() {
-		fileLogIn();
-		try (BufferedReader br = new BufferedReader(new FileReader("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + getId()+getPwd()))){
+	public void idPrint() {
+		try (BufferedReader br = new BufferedReader(new FileReader("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + getId()))){
 			String value = null;
 			while((value = br.readLine()) != null) {
 				System.out.println(value);
@@ -87,36 +61,7 @@ public class Register {
 		}
 	}
 	
-	public void fileLogIn () {
-		// 아이디
-		while (true) {
-			System.out.print("아이디를 입력해주세요. > ");
-			tmpId = scanner.nextLine();
-			if (tmpId.length() < 4 ) {
-				System.out.println("아이디는 최소 4글자 이상 입력하여야 합니다.");
-			}else {
-				this.id = tmpId;
-				System.out.print("비밀번호를 입력해주세요. > ");
-				this.pwd = scanner.nextLine();
-				this.idPwd = this.id + this.pwd;
-				break;
-			}
-		}
-	}
 	
-	public void logIn () {
-		fileLogIn();
-		test();
-		loggin = idPwd.equals(fileName);
-		System.out.println(fileName);
-	}
-
-	public void test () {
-		File f = new File("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + idPwd);
-		//파일이름가져옴
-		fileName = f.getName(); 
-	}
-
 	public void signInId () {
 		// 아이디
 		while (true) {

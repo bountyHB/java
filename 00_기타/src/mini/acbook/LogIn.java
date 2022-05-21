@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class LogIn {
 	
-	private String id;
-	private String pwd;
+	private String logId;
+	private String logPwd;
 	private int count;
 	
 	Scanner sc = new Scanner(System.in);
@@ -15,19 +15,19 @@ public class LogIn {
 	}
 	
 	public String getId() {
-		return id;
+		return logId;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		this.logId = id;
 	}
 
 	public String getPwd() {
-		return pwd;
+		return logPwd;
 	}
 
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		this.logPwd = pwd;
 	}
 
 	public int getCount() {
@@ -42,15 +42,15 @@ public class LogIn {
 	public void login() {
 		while(true) {
 			System.out.print("아이디 > ");
-			id = sc.nextLine();
+			logId = sc.nextLine();
 			System.out.print("비밀번호 > ");
-			pwd = sc.nextLine();
+			logPwd = sc.nextLine();
 			
-			if(!(userData.userList.containsKey(id))) {
+			if(userData.userList.containsKey(this.logId)) {
 				System.out.println("아이디가 존재하지 않습니다.");
 				break;
 			} else {
-				if(userData.userList.get(id).getPwd().equals(pwd)) {
+				if(userData.userList.get(logId).equals(logPwd)) {
 				System.out.println("로그인에 성공하였습니다.");
 				break;
 				}else {

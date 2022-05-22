@@ -1,9 +1,14 @@
 package mini.acbook;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Menu implements JustMenu {
+public class Menu {
 	int menu; 
 	int num2;
 	int sum1;
@@ -12,16 +17,15 @@ public class Menu implements JustMenu {
 	String id;
 	String pwd;
 	Scanner scanner = new Scanner(System.in);
-	ArrayList<Integer> income = new ArrayList();
-	ArrayList<Integer> expense = new ArrayList();
-	ArrayList<String> incomeMemo = new ArrayList();
-	ArrayList<String> expenseMemo = new ArrayList();
+	ArrayList<Integer> income = new ArrayList<Integer>();
+	ArrayList<Integer> expense = new ArrayList<Integer>();
+	ArrayList<String> incomeMemo = new ArrayList<String>();
+	ArrayList<String> expenseMemo = new ArrayList<String>();
 	Register register = new Register();
 	User user = new User();
 	public Menu() {
 	}
 	
-	@Override
 	public void select() {
 		while (true) {
 			System.out.println("=============================");
@@ -47,13 +51,13 @@ public class Menu implements JustMenu {
 					select();
 				}
 			case 2:
-				register.signInId();
-				register.signInPwd();
+				register.setId();
+				register.setPwd();
 				select();
 				break;
 			case 3:
-				register.findID();
-				register.findPwd();
+				user.findID();
+				user.findPwd();
 				select();
 				break;
 			case 0:
@@ -67,7 +71,6 @@ public class Menu implements JustMenu {
 		}
 	}
 
-	@Override
 	public void enterMoney() {
 		
 		while (true) {
@@ -101,7 +104,6 @@ public class Menu implements JustMenu {
 		}
 	}
 
-	@Override
 	public void choose() {
 		while (true) {
 			System.out.println("===========메뉴 선택===========");
@@ -128,7 +130,6 @@ public class Menu implements JustMenu {
 		}
 	}
 	
-	@Override
 	public void chooseIncome() {
 		while (true) {
 			System.out.println("===========수입 선택===========");
@@ -182,7 +183,6 @@ public class Menu implements JustMenu {
 		
 	}
 
-	@Override
 	public void chooseExpense() {
 		while (true) {
 			System.out.println("===========지출 선택===========");
@@ -258,7 +258,6 @@ public class Menu implements JustMenu {
 		}
 	}
 
-	@Override
 	public void cheking() {
 		while (true) {
 			System.out.println("===========메뉴 선택===========");
@@ -290,7 +289,6 @@ public class Menu implements JustMenu {
 		}
 	}
 
-	@Override
 	public void showBalance() {
 		inc();
 		exp();
@@ -332,4 +330,26 @@ public class Menu implements JustMenu {
 		}
 	}
 
+	public void fileMake() {
+	try (BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + user.getId(),true))){
+	
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	}
+
+	public void filePrint() {
+	try (BufferedReader br = new BufferedReader(new FileReader("/Users/hb/Documents/GitHub/java/00_기타/src/mini/acbook/infos/" + user.getId()))){
+		String value = null;
+		while((value = br.readLine()) != null) {
+			System.out.println(value);
+		} 
+	}catch (IOException e) {
+		e.printStackTrace();
+	}
+	}
+	
+
+	
+	
 }

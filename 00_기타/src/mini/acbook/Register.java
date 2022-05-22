@@ -65,7 +65,6 @@ public class Register {
 	public void signInId () {
 		// 아이디
 		while (true) {
-			System.out.println("****[아이디 생성]****");
 			System.out.print("설정할 아이디를 입력해주세요. > ");
 			tmpId = scanner.nextLine();
 			if (tmpId.length() < 4 ) {
@@ -80,17 +79,14 @@ public class Register {
 	
 	public void signInPwd() {
 		while(true) {
-			System.out.println("****[비밀번호 설정]****");
-			System.out.print("설정할 비밀번호를 입력해주세요. > ");
+			System.out.print("비밀번호를 입력해주세요. > ");
 			tmpPwd1 = scanner.nextLine();
 
-			System.out.println("****[비밀번호 확인]****");
-			System.out.print("비밀번호 다시 입력해주세요. > ");
+			System.out.print("비밀번호를 다시 입력해주세요. > ");
 			tmpPwd2 = scanner.nextLine();
 			
 			if (tmpPwd1.equals(tmpPwd2)) {
 				this.pwd = tmpPwd1;
-				System.out.println("비밀번호가 설정 되었습니다.");
 				System.out.println("회원가입이 완료 되었습니다.");
 				
 				break;

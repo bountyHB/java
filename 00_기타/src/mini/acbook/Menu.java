@@ -18,6 +18,8 @@ public class Menu implements JustMenu {
 	ArrayList<String> expenseMemo = new ArrayList();
 	Register register = new Register();
 	User user = new User();
+	public Menu() {
+	}
 	
 	@Override
 	public void select() {
@@ -46,7 +48,6 @@ public class Menu implements JustMenu {
 				}
 			case 2:
 				register.signInId();
-				register.idFile();
 				register.signInPwd();
 				select();
 				break;
@@ -83,7 +84,6 @@ public class Menu implements JustMenu {
 			case 1:
 				System.out.print("입력하려는 금액 > ");
 				this.num2 = scanner.nextInt();
-				// 받은 숫자를 임시저장
 				choose();
 				break;
 			case 2:
@@ -292,6 +292,13 @@ public class Menu implements JustMenu {
 
 	@Override
 	public void showBalance() {
+		inc();
+		exp();
+		bal();
+		cheking();
+	}
+	
+	public void inc () {
 		System.out.println("===========수입 내역===========");
 		for (int i = 0; i < income.size(); i++) {
 			System.out.println(incomeMemo.get(i)+ " : " + income.get(i) + "원");
@@ -300,7 +307,9 @@ public class Menu implements JustMenu {
 			sum1 += income.get(i);
 		}
 		System.out.println("총 : " + sum1 + "원");
-		
+	}
+	
+	public void exp() {
 		System.out.println("===========지출 내역===========");
 		for (int i = 0; i < expense.size(); i++) {
 			System.out.println(expenseMemo.get(i)+ " : " + expense.get(i) + "원");
@@ -309,7 +318,9 @@ public class Menu implements JustMenu {
 			sum2 += expense.get(i);
 		}
 		System.out.println("총 : " + sum2 + "원");
-
+	}
+	
+	public void bal() {
 		System.out.println("============$잔 고$===========");
 		left = sum1 - sum2;
 		
@@ -319,7 +330,6 @@ public class Menu implements JustMenu {
 			System.out.println(user.getId() + "님의 잔고에 남아있는 돈은 0원,");
 			System.out.println((left) + "의 갚아야할 빚이 있습니다.");
 		}
-		cheking();
 	}
 
 }

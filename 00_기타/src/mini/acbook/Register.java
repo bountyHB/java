@@ -37,7 +37,6 @@ public class Register {
 			if (tmpId.length() < 4 ) {
 				System.out.println("아이디는 최소 4글자 이상 입력하여야 합니다.");
 			}else {
-				System.out.println("아이디가 생성 되었습니다.");
 				this.id = tmpId;
 				break;
 			}

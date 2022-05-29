@@ -9,8 +9,14 @@ public class Main {
 		
 		int t = scanner.nextInt();
 		
-		for (int i = 0; i < args.length; i++) {
-			
+		for (int i = 1; i <= t; i++) {
+			for (int j = 0; j < t-i; j++) {
+				System.out.print(" ");
+			}
+			for (int j = 0; j < i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
 		}
 	}
 }

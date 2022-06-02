@@ -3,20 +3,24 @@ package level.level1;
 import java.util.Scanner;
 
 public class Main {
+ 
 	public static void main(String[] args) {
-		
-		Scanner scanner = new Scanner(System.in);
-		
-		int t = scanner.nextInt();
-		
-		for (int i = 1; i <= t; i++) {
-			for (int j = 0; j < t-i; j++) {
-				System.out.print(" ");
+		Scanner in = new Scanner(System.in);
+ 
+		int a = in.nextInt();
+		in.close();
+        
+		int cnt = 0;
+		int x = a;
+        
+		while (true) {
+			a = ((a % 10) * 10) + (((a / 10) + (a % 10)) % 10);
+			cnt++;
+ 
+			if (x == a) {
+				break;
 			}
-			for (int j = 0; j < i; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
 		}
+		System.out.println(cnt);
 	}
 }

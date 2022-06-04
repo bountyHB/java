@@ -1,27 +1,25 @@
 package level.level1;
 
-import java.util.Scanner;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+ 
 public class Main {
  
-	public static void main(String[] args) {
-		
-		Scanner in = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
  
-		int a = in.nextInt();
-		in.close();
-        
-		int cnt = 0;
-		int x = a;
-        
-		while (true) {
-			a = ((a % 10) * 10) + (((a / 10) + (a % 10)) % 10);
-			cnt++;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
+		StringBuilder sb = new StringBuilder();
  
-			if (x == a) {
-				break;
-			}
+		for (int i = 0; i < N; i++) {		
+			String str = br.readLine();
+			int target = str.indexOf(" ");
+			int result = Integer.parseInt(str.substring(0,target)) + Integer.parseInt(str.substring(target + 1));		
+			sb.append(result+"\n");
 		}
-		System.out.println(cnt);
-	}
+		
+		br.close();
+		System.out.print(sb);
+    }
 }

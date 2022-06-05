@@ -18,8 +18,6 @@ public class Main {
 			int result = Integer.parseInt(str.substring(0,target)) + Integer.parseInt(str.substring(target + 1));		
 			sb.append(result+"\n");
 		}
-		
 		br.close();
-		System.out.print(sb);
     }
 }

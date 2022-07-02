@@ -1,17 +1,36 @@
 package level.level1;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.util.Scanner;
 
 public class Main2 {
 
-	public static void main(String[] args) throws IOException {
-		// BufferedWriter를 사용하기 위해서는 throws IOException을 해 주어야 함.
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); // 선언
-		bw.write("Hello World");
-		bw.flush(); // write로 담은 내용 출력 후, 버퍼를 비움.
-		bw.close(); 
-	
-	}
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[9];
+        int count = 0;
+        int max = 0;
+        int index = 0;
+
+        for (int i = 0; i < 9; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        for (int value : arr) {
+            count++;
+
+            if(value>max){
+                max = value;
+                index = count;
+            }
+        }
+
+//        for(int i=0; i<9; i++) {
+//            if(arr[i]>max) {
+//                max = arr[i];
+//                index = i+1;
+//            }
+//        }
+
+        System.out.printf(max + "\n" + index);
+    }
 }

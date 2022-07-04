@@ -12,6 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Student implements Comparable<Student> {
 	
+	private int idx;
 	private String name;
 	private int age;
 	private String gender;
@@ -25,4 +26,13 @@ public class Student implements Comparable<Student> {
 		return Integer.compare(this.age, student.age);
 	}
 
+	// int idx 추가해서 앞의 클래스들이 에러나기 때문에 생성자를 추가했다.
+	public Student(String name, int age, String gender, int math, int english) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.math = math;
+		this.english = english;
+	}
 }

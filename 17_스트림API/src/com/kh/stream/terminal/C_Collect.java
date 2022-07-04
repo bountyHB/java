@@ -102,5 +102,6 @@ public class C_Collect {
 		        Student(idx=2, name=홍길동, age=20, gender=남자, math=80, english=80), 
 		        Student(idx=4, name=이몽룡, age=23, gender=남자, math=60, english=70)]}
 		 */
+		
 	}
 }

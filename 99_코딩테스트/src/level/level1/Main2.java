@@ -4,7 +4,12 @@ import java.util.Scanner;
 
 public class Main2 {
 
+<<<<<<< HEAD
     public static void main(String[] args){
+=======
+    public static void main(String[] args){ 
+        
+>>>>>>> f2a97924e2a19f5338474f189aec3b33d9dd1263
         Scanner scanner = new Scanner(System.in);
         int[] arr = new int[9];
         int count = 0;
@@ -33,4 +38,8 @@ public class Main2 {
 
         System.out.printf(max + "\n" + index);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f2a97924e2a19f5338474f189aec3b33d9dd1263
